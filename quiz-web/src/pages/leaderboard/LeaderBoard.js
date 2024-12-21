@@ -9,14 +9,16 @@ function Leaderboard() {
 
   useEffect(() => {
     const newSocket = io(process.env.REACT_APP_WEBSOCKET_HOST);
-
+    // Emit that a new user joins a quiz
     newSocket.emit("joinQuiz", { quizId: "quiz12345", userId: userId });
 
+    // set leaderboard data for a new joined user
     newSocket.on("userJoined", (data) => {
       setLeaderboard(data);
       console.log(data);
     });
 
+    // set leaderboard data everytime updateLeaderboard is emitted from server side
     newSocket.on('updateLeaderboard', (data) => {
       setLeaderboard(data);
     });
@@ -24,6 +26,7 @@ function Leaderboard() {
     setSocket(newSocket);
   }, []);
 
+  // Method for faking a submit answer
   const submitAnswer = () => {
     if (socket) {
       console.log("submitAnswer");
