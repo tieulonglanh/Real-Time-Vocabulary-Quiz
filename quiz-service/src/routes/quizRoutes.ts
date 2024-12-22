@@ -1,9 +1,10 @@
-import { Router } from 'express';
+import { Request, Response, NextFunction, Router } from 'express';
 const router = Router();
 
-import  processAnswer from 'controllers/answerController';
+import  { AnswerController } from 'controllers/answerController';
 
 // Định nghĩa các route
-router.post('/answer/process', processAnswer);
+const answerController = new AnswerController();
+router.post('/answers/validate', (req: Request, res: Response, next: NextFunction) => answerController.validateAnswer(req, res, next));
 
 export default router;

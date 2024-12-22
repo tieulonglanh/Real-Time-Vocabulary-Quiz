@@ -1,11 +1,14 @@
 import express from "express";
 import http from "http";
-import { BroadcastService } from 'services/broadcastService';
+import { LeaderboardBroadcastService } from 'services/leaderboardBroadcastService';
+import redisClient from "infras/redis/redis";
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 const app = express();
 const server = http.createServer(app);
 
-const broadcastService = new BroadcastService(server);
+const broadcastService = new LeaderboardBroadcastService({server: server, redis: redisClient});
 broadcastService.registerHandlers();
 
 // Start the server
