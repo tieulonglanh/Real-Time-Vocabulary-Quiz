@@ -16,7 +16,7 @@ $ cd quiz-service\
 $ npm install\
 $ npm start
 
-### Setup websocket-service
+### Setup quiz-web
 $ cd quiz-web\
 $ npm install\
 $ npm start
