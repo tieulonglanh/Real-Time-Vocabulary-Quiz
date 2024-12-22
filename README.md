@@ -2,21 +2,21 @@
 
 ## Setup
 ### Setup quiz-service
-$ cd quiz-service
-$ npm install
+$ cd quiz-service\
+$ npm install\
 $ npm start
 
 ### Setup user-service
-$ cd user-service
-$ npm install
+$ cd user-service\
+$ npm install\
 $ npm start
 
 ### Setup websocket-service
-$ cd quiz-service
-$ npm install
+$ cd quiz-service\
+$ npm install\
 $ npm start
 
 ### Setup websocket-service
-$ cd quiz-web
-$ npm install
+$ cd quiz-web\
+$ npm install\
 $ npm start
