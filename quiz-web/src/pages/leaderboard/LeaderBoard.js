@@ -29,7 +29,6 @@ function Leaderboard() {
   // Method for faking a submit answer
   const submitAnswer = () => {
     if (socket) {
-      console.log("submitAnswer");
       socket.emit('submitAnswer', {
         quizId: 'quiz12345',
         userId: userId,

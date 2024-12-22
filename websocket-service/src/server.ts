@@ -1,5 +1,6 @@
 import express from "express";
 import http from "http";
+import { Server } from "socket.io";
 import { LeaderboardBroadcastService } from 'services/leaderboardBroadcastService';
 import redisClient from "infras/redis/redis";
 import * as dotenv from 'dotenv';
@@ -7,8 +8,10 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 const server = http.createServer(app);
-
-const broadcastService = new LeaderboardBroadcastService({server: server, redis: redisClient});
+const io = new Server(server, {
+    cors: { origin: "*" },
+});
+const broadcastService = new LeaderboardBroadcastService({server: io, redis: redisClient});
 broadcastService.registerHandlers();
 
 // Start the server

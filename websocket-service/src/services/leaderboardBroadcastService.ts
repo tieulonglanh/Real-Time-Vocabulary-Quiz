@@ -10,9 +10,7 @@ export class LeaderboardBroadcastService {
     private redis: typeof redisClient;
 
     constructor(ops: LeaderboardBroadcastServiceOps) {
-        this.io = new Server(ops.server, {
-            cors: { origin: "*" },
-        });
+        this.io = ops.server;
         this.redis = ops.redis;
     }
 
