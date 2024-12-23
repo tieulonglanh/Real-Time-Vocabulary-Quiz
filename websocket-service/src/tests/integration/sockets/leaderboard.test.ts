@@ -5,12 +5,6 @@ import { Server, type Socket as ServerSocket } from "socket.io";
 import redisClient from "infras/redis/redis";
 import { LeaderboardBroadcastService } from "services/leaderboardBroadcastService";
 
-function waitFor(socket: ServerSocket | ClientSocket, event: string) {
-    return new Promise((resolve) => {
-        socket.once(event, resolve);
-    });
-}
-
 describe("Test leaderboard socket.io", () => {
     let io: Server;
     let serverSocket: ServerSocket;
